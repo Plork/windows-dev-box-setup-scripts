@@ -27,8 +27,6 @@ executeScript "FileExplorerSettings.ps1";
 executeScript "SystemConfiguration.ps1";
 executeScript "CommonDevTools.ps1";
 
-executeScript "WSL.ps1";
-RefreshEnv
 executeScript "Docker.ps1";
 
 choco install -y powershell-core
@@ -36,16 +34,21 @@ choco install -y azure-cli
 Install-Module -Force Az
 choco install -y microsoftazurestorageexplorer
 
-choco install -y visualstudio2017community --package-parameters="'--add Microsoft.VisualStudio.Component.Git'"
+choco install -y visualstudio2017community
 choco install -y visualstudio2017-workload-azure
 Update-SessionEnvironment #refreshing env due to Git install
 
+choco install -y wsl
 choco install -y dashlane
 choco install -y vitualbox
 choco install -y git-credential-winstore
 choco install -y poshgit
 choco install -y postman
 choco install -y vagrant
+choco install -y conemu
+choco install -y slack
+choco install -y microsoft-teams
+choco istalll -y whatsapp
 
 choco install -y visualstudiocode
 choco install vscode-powershell
