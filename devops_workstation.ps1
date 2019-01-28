@@ -40,7 +40,7 @@ Update-SessionEnvironment #refreshing env due to Git install
 
 choco install -y wsl
 choco install -y dashlane
-choco install -y vitualbox
+choco install -y virtualbox
 choco install -y git-credential-winstore
 choco install -y poshgit
 choco install -y postman
