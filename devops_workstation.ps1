@@ -25,12 +25,8 @@ function executeScript {
 #--- Setting up Windows ---
 executeScript "FileExplorerSettings.ps1";
 executeScript "SystemConfiguration.ps1";
-executeScript "RemoveDefaultApps.ps1";
 executeScript "CommonDevTools.ps1";
-executeScript "Browsers.ps1";
 
-executeScript "HyperV.ps1";
-RefreshEnv
 executeScript "WSL.ps1";
 RefreshEnv
 executeScript "Docker.ps1";
@@ -39,11 +35,30 @@ choco install -y powershell-core
 choco install -y azure-cli
 Install-Module -Force Az
 choco install -y microsoftazurestorageexplorer
-choco install -y terraform
+
+choco install -y visualstudio2017community --package-parameters="'--add Microsoft.VisualStudio.Component.Git'"
+choco install -y visualstudio2017-workload-azure
+Update-SessionEnvironment #refreshing env due to Git install
+
+choco install -y dashlane
+choco install -y vitualbox
+choco install -y git-credential-winstore
+choco install -y poshgit
+choco install -y postman
+choco install -y vagrant
+
+choco install -y visualstudiocode
+choco install vscode-powershell
+choco install vscode-docker
+choco install vscode-gitlens
+choco install vscode-editorconfig 
+
 
 # Install tools in WSL instance
 write-host "Installing tools inside the WSL distro..."
 Ubuntu1804 run apt install ansible -y
+Ubuntu1804 run apt install python2.7 python-pip -y 
+Ubuntu1804 run curl -L https://omnitruck.chef.io/install.sh | sudo bash
 
 Enable-UAC
 Enable-MicrosoftUpdate
